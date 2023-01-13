@@ -17,3 +17,40 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+
+void stat(const double A[],int N,double B[]){
+    // Find Arithmetic Mean
+    for(int i = 0; i < N; i++){
+        B[0] += A[i];
+    }
+    B[0] = B[0]/N;
+
+    // Find Standard Deviation
+    double sumSD;
+    for (int i = 0; i < N; i++){
+        sumSD += pow(A[i] - B[0],2);
+    }
+    B[1] = sqrt(sumSD/N);
+    
+    // Find Geometric Mean
+    double sumGM = 1;
+    for (int i = 0; i < N; i++){
+        sumGM *= A[i];
+    }
+    B[2] = pow(sumGM,(double)1/N);
+
+    // Find Harmonic Mean
+    double sumHM;
+    for (int i = 0; i < N; i++){
+        sumHM += 1/A[i];
+    }
+    B[3] = N/sumHM;
+
+    // Find Max, Min
+    double max = A[0], min = A[0];
+    for (int i = 0; i < N; i++){
+        if (A[i] > max) max = A[i];
+        if (A[i] < min) min = A[i]; 
+    }
+    B[4] = max , B[5] = min;
+}
