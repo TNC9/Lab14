@@ -28,8 +28,7 @@ void updateImage(bool image[][M],int s,int x,int y){
             if (sqrt((pow(i-x,2))+pow(j-y,2)) <= s-1)
             {
                 image[i][j] = 1;
-            }
-            
+            } 
         }  
     }
 }
